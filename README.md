@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Task Manager Application
 
 A full-stack task management application built with React and Node.js, featuring user authentication and comprehensive task management capabilities.
@@ -176,3 +177,6 @@ MIT License
 3. Commit changes
 4. Push to branch
 5. Create Pull Request
+=======
+# task_manager
+>>>>>>> 0d9b0f62a1d445e2a666a6b92be28c817b613128
