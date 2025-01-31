@@ -13,18 +13,18 @@ const pool = mysql.createPool({
 
 const initDatabase = async () => {
   try {
-    // Test database connection
+  
     await pool.promise().query('SELECT 1');
     console.log('Database connection successful');
 
-    // Drop existing tables if in development mode
+ 
     if (process.env.NODE_ENV === 'development') {
       await pool.promise().query('DROP TABLE IF EXISTS tasks');
       await pool.promise().query('DROP TABLE IF EXISTS users');
       console.log('Existing tables dropped successfully');
     }
 
-    // Create users table
+  
     await pool.promise().query(`
       CREATE TABLE IF NOT EXISTS users (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -36,7 +36,7 @@ const initDatabase = async () => {
       )
     `);
 
-    // Create tasks table with user_id
+ 
     await pool.promise().query(`
       CREATE TABLE IF NOT EXISTS tasks (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -59,7 +59,7 @@ const initDatabase = async () => {
   }
 };
 
-// Initialize the database with error handling
+
 initDatabase().catch(error => {
   console.error('Failed to initialize database:', error);
   process.exit(1);

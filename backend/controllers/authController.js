@@ -8,7 +8,7 @@ const register = async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
-    // Check if user exists
+    
     const [existingUsers] = await db.query(
       'SELECT * FROM users WHERE email = ? OR username = ?',
       [email, username]
@@ -18,10 +18,10 @@ const register = async (req, res) => {
       return res.status(400).json({ error: 'User already exists' });
     }
 
-    // Hash password
+ 
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    // Create user
+    
     const [result] = await db.query(
       'INSERT INTO users (username, email, password) VALUES (?, ?, ?)',
       [username, email, hashedPassword]

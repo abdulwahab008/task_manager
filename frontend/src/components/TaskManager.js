@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 import { logout } from '../features/authSlice';
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'http://localhost:3001/api';
 
 const TaskManager = () => {
   const [tasks, setTasks] = useState([]);
@@ -29,8 +29,8 @@ const TaskManager = () => {
   const [editingTask, setEditingTask] = useState(null);
   const [editValue, setEditValue] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
-  const [filter, setFilter] = useState('all'); // all, active, completed
-  const [sortBy, setSortBy] = useState('newest'); // newest, oldest, priority
+  const [filter, setFilter] = useState('all'); 
+  const [sortBy, setSortBy] = useState('newest'); 
   const [priority, setPriority] = useState('medium');
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -131,10 +131,9 @@ const TaskManager = () => {
 
   const filteredTasks = tasks
     .filter(task => {
-      // Search filter
+     
       const matchesSearch = task.title.toLowerCase().includes(searchTerm.toLowerCase());
       
-      // Status filter
       if (filter === 'active') return !task.completed && matchesSearch;
       if (filter === 'completed') return task.completed && matchesSearch;
       return matchesSearch;
@@ -178,11 +177,11 @@ const TaskManager = () => {
       </div>
     </nav>
 
-    <main className="pt-28 pb-12 px-4"> {/* Increased top padding */}
+    <main className="pt-28 pb-12 px-4"> {}
         <div className="max-w-5xl mx-auto">
           <Card className="shadow-2xl bg-white/90 backdrop-blur-lg border border-indigo-50">
             <CardContent className="p-8">
-              {/* Updated Stats Section */}
+              {}
               <div className="stats-container mt-8 mb-12 mx-4">
                 <div className="grid grid-cols-3 gap-6">
                   <StatsBox
