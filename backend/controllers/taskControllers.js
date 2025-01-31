@@ -38,7 +38,7 @@ const updateTask = async (req, res) => {
     const { id } = req.params;
     const { title, completed } = req.body;
     
-    // Verify task belongs to user
+
     const [task] = await db.query(
       'SELECT * FROM tasks WHERE id = ? AND user_id = ?',
       [id, req.userId]
@@ -69,7 +69,7 @@ const deleteTask = async (req, res) => {
   try {
     const { id } = req.params;
 
-    // Verify task belongs to user
+    
     const [task] = await db.query(
       'SELECT * FROM tasks WHERE id = ? AND user_id = ?',
       [id, req.userId]
@@ -96,7 +96,7 @@ const updatePriority = async (req, res) => {
     const { id } = req.params;
     const { priority } = req.body;
     
-    // Verify task belongs to user
+  
     const [task] = await db.query(
       'SELECT * FROM tasks WHERE id = ? AND user_id = ?',
       [id, req.userId]
@@ -128,7 +128,7 @@ const updateDueDate = async (req, res) => {
     const { id } = req.params;
     const { dueDate } = req.body;
     
-    // Verify task belongs to user
+   
     const [task] = await db.query(
       'SELECT * FROM tasks WHERE id = ? AND user_id = ?',
       [id, req.userId]
