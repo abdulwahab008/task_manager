@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 import { logout } from '../features/authSlice';
 
-const API_URL = 'http://localhost:3001/api';
+const API_URL = 'http://localhost:3000/api';
 
 const TaskManager = () => {
   const [tasks, setTasks] = useState([]);
